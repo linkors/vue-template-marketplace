@@ -30,7 +30,7 @@
       </div>
       <div class="product-detail_footer">
         <div class="product-detail_button">
-          <button type="button" class="btn-success">Add to Cart</button>
+          <AddToCartButton :product="product" />
         </div>
       </div>
     </section>
@@ -38,11 +38,13 @@
 </template>
 <script>
 import GoBack from "@/components/GoBack";
+import AddToCartButton from "@/components/AddToCartButton.vue";
 import { mapActions, mapState, mapGetters } from "vuex";
 
 export default {
   components: {
-    GoBack
+    GoBack,
+    AddToCartButton
   },
   mounted() {
     this.fetchProduct(this.$route.params.id);
@@ -113,12 +115,10 @@ export default {
   background-color: #cc1b4a;
 }
 .product-detail_title {
-  width: 100%;
+  width: 80%;
   font-weight: bolder;
   font-size: 12px;
   overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 .product-detail_price {
   width: 100%;

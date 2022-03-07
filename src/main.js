@@ -14,7 +14,7 @@ const username = Storage.get(USER_STORAGE_KEY);
 if (username) {
   store.commit(`user/${SET_USER}`, username);
   const currentCart = Storage.get(CART_STORAGE_KEY);
-  if (currentCart[username]) {
+  if (currentCart && currentCart[username]) {
     store.commit(`cart/${UPDATE_CART}`, currentCart[username]);
   }
 }

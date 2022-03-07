@@ -38,7 +38,7 @@ export default {
       }
 
       const username = rootState.user.username;
-      const currentCart = Storage.get(CART_STORAGE_KEY);
+      const currentCart = Storage.get(CART_STORAGE_KEY) || {};
       currentCart[username] = newProducts;
       Storage.set(CART_STORAGE_KEY, currentCart);
       commit(types.UPDATE_CART, newProducts);
